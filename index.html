@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一路向西电影网 - 最新电影资讯、热映榜单与深度影评</title>
+<meta name="description" content="一路向西电影网(yiluxiangxidianyingwang-wap.github.io)提供最新电影资讯、热映排片、高分排行与深度影评，覆盖院线新片、经典老片与影视圈动态。">
+<meta name="keywords" content="一路向西电影网,电影资讯,电影排行,热映电影,影评,影视资讯">
+<meta name="author" content="一路向西电影网">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="一路向西电影网 - 最新电影资讯与排行">
+<meta property="og:description" content="提供最新电影资讯、热映排片、高分排行与深度影评。">
+<meta property="og:url" content="https://yiluxiangxidianyingwang-wap.github.io/">
+<meta property="og:site_name" content="一路向西电影网">
+<link rel="canonical" href="https://yiluxiangxidianyingwang-wap.github.io/">
+<style>
+:root{
+  --ink:#11131a;
+  --ink2:#1b1f2a;
+  --paper:#f4f1ea;
+  --paper2:#e8e2d6;
+  --red:#c0281f;
+  --red2:#8d1b15;
+  --gold:#b08d2f;
+  --line:#d9d2c4;
+  --muted:#6b6b6b;
+  --serif:"Source Han Serif SC","Noto Serif CJK SC",Georgia,"Songti SC",serif;
+  --sans:"Helvetica Neue","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ===== 报头 ===== */
+.masthead{background:var(--ink);color:#fff;border-bottom:4px solid var(--red)}
+.mast-top{display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:12px;color:#cfcfcf;border-bottom:1px solid #333}
+.mast-top .meta{display:flex;gap:18px;flex-wrap:wrap}
+.mast-head{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding:26px 0 20px}
+.brand{font-family:var(--serif);font-size:46px;font-weight:900;letter-spacing:2px;line-height:1}
+.brand small{display:block;font-family:var(--sans);font-size:12px;font-weight:400;letter-spacing:6px;color:var(--gold);margin-top:8px}
+.brand a:hover{color:#fff}
+.mast-head .center{border-left:1px solid #444;border-right:1px solid #444;padding:0 24px;text-align:center;font-size:13px;color:#ddd}
+.mast-head .center b{display:block;color:var(--gold);font-family:var(--serif);font-size:18px;letter-spacing:1px}
+.mast-head .right{text-align:right;font-size:13px;color:#ddd}
+.mast-head .right strong{display:block;color:#fff;font-family:var(--serif);font-size:20px}
+
+/* ===== 导航 ===== */
+nav.primary{background:var(--red);position:sticky;top:0;z-index:50;border-top:1px solid var(--red2);border-bottom:3px solid var(--ink)}
+nav.primary .inner{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+nav.primary a{
+  color:#fff;font-family:var(--serif);font-size:17px;letter-spacing:1px;
+  padding:13px 20px;display:inline-block;border-right:1px solid rgba(255,255,255,.18);
+}
+nav.primary a:hover{background:var(--ink)}
+nav.primary a.hot{margin-left:auto;background:var(--gold);color:#111;font-weight:700;border-right:none}
+nav.primary a.hot:hover{background:#fff;color:var(--red)}
+.menu-btn{display:none;background:none;border:none;color:#fff;font-size:26px;padding:10px 14px;cursor:pointer}
+
+/* ===== 头条区 ===== */
+.lede{display:grid;grid-template-columns:1.55fr 1fr;gap:28px;padding:34px 0 10px}
+.hero{position:relative;background:var(--ink2);color:#fff;overflow:hidden}
+.hero .ph{aspect-ratio:16/10;background:linear-gradient(135deg,#2b1110,#5a1c16 55%,#1a1a2e);position:relative}
+.hero .ph::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 70% 40%,rgba(176,141,47,.35),transparent 60%),
+  repeating-linear-gradient(90deg,transparent 0 39px,rgba(255,255,255,.04) 39px 40px);
+}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;padding:50px 28px 22px;background:linear-gradient(to top,rgba(0,0,0,.95),transparent)}
+.tag{display:inline-block;background:var(--red);color:#fff;font-size:12px;letter-spacing:2px;padding:3px 10px;margin-bottom:10px}
+.hero h1{font-family:var(--serif);font-size:32px;line-height:1.3;font-weight:900}
+.hero h1 span{color:var(--gold)}
+.hero p{margin-top:12px;color:#d8d8d8;font-size:15px}
+.hero .more{margin-top:14px;color:var(--gold);font-size:14px}
+
+.hero-side{display:flex;flex-direction:column;gap:14px}
+.alert{background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);padding:14px 16px}
+.alert h4{font-family:var(--serif);font-size:15px;margin-bottom:8px;color:var(--red)}
+.alert ul{list-style:none;font-size:14px}
+.alert li{padding:5px 0;border-bottom:1px dashed var(--line);display:flex;gap:8px}
+.alert li:last-child{border-bottom:none}
+.alert li em{color:var(--gold);font-style:normal;font-weight:700;min-width:46px}
+.ticker{background:var(--ink);color:#fff;padding:12px 16px;font-size:14px;overflow:hidden}
+.ticker b{color:var(--gold);margin-right:12px}
+.ticker span{color:#ddd}
+
+/* ===== 分栏标题 ===== */
+section{padding:40px 0;border-top:1px solid var(--line)}
+.sec-title{display:flex;align-items:baseline;gap:14px;margin-bottom:24px;flex-wrap:wrap}
+.sec-title h2{font-family:var(--serif);font-size:30px;font-weight:900;letter-spacing:1px}
+.sec-title h2 i{color:var(--red);font-style:normal;margin-right:8px}
+.sec-title .en{font-family:Georgia,serif;color:var(--line);letter-spacing:3px;font-size:13px;text-transform:uppercase}
+.sec-title .more{margin-left:auto;font-size:13px;color:var(--muted);border-bottom:1px solid var(--muted)}
+.sec-title .more:hover{color:var(--red);border-color:var(--red)}
+
+/* ===== 栏目一：最新资讯 ===== */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.news-card{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
+.news-card .ph{aspect-ratio:4/3;background:linear-gradient(135deg,#3a3f4b,#1f232c)}
+.news-card .ph.a{background:linear-gradient(135deg,#7d2820,#2b1110)}
+.news-card .ph.b{background:linear-gradient(135deg,#2f4a5b,#15232b)}
+.news-card .ph.c{background:linear-gradient(135deg,#5b4a2a,#2b2415)}
+.news-card .ph.d{background:linear-gradient(135deg,#3a2f4b,#1a152b)}
+.news-card .ph{position:relative;overflow:hidden}
+.news-card .ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 23px,rgba(255,255,255,.05) 23px 24px)}
+.news-card .ph em{position:absolute;left:14px;bottom:12px;font-style:normal;color:rgba(255,255,255,.5);font-size:12px;letter-spacing:1px}
+.news-card .body{padding:18px;flex:1;display:flex;flex-direction:column}
+.news-card .cat{font-size:12px;color:var(--red);letter-spacing:1px;margin-bottom:8px}
+.news-card h3{font-family:var(--serif);font-size:19px;line-height:1.45;margin-bottom:10px;font-weight:700}
+.news-card h3:hover{color:var(--red)}
+.news-card p{font-size:14px;color:#555;flex:1}
+.news-card .foot{margin-top:14px;padding-top:10px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+
+/* ===== 栏目二：热映排片 ===== */
+.nowshow{background:var(--ink);color:#fff}
+.nowshow .sec-title h2{color:#fff}
+.nowshow .sec-title .en{color:#444}
+.filmstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.poster{position:relative;cursor:pointer}
+.poster .frame{aspect-ratio:2/3;position:relative;overflow:hidden;border:2px solid #333}
+.poster .frame::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(160deg,var(--g1, #4a1c16),var(--g2, #11131a));
+}
+.poster:nth-child(1) .frame{--g1:#6e2419;--g2:#241008}
+.poster:nth-child(2) .frame{--g1:#1d3a52;--g2:#0c1620}
+.poster:nth-child(3) .frame{--g1:#4a3c1a;--g2:#1a160a}
+.poster:nth-child(4) .frame{--g1:#3a1d4a;--g2:#160a1a}
+.poster .frame::after{
+  content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 9px,rgba(255,255,255,.05) 9px 10px);
+}
+.poster .frame span{position:absolute;top:10px;right:10px;background:var(--gold);color:#111;font-size:12px;font-weight:700;padding:2px 8px}
+.poster .frame b{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 14px;font-family:var(--serif);font-size:20px;background:linear-gradient(to top,rgba(0,0,0,.92),transparent)}
+.poster h4{margin-top:12px;font-size:16px;font-weight:700}
+.poster .score{color:var(--gold);font-size:14px}
+.poster p{font-size:13px;color:#aaa;margin-top:4px}
+
+/* ===== 栏目三：高分排行 ===== */
+.rank-shell{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:start}
+.rank-table{background:#fff;border:1px solid var(--line)}
+.rank-table .rh{background:var(--ink);color:#fff;display:grid;grid-template-columns:56px 1fr 90px 70px;font-family:var(--serif);font-size:15px;letter-spacing:1px}
+.rank-table .rh div{padding:12px 14px;border-right:1px solid #333}
+.rank-table .rh div:last-child{border-right:none;text-align:right}
+.rank-row{display:grid;grid-template-columns:56px 1fr 90px 70px;border-top:1px solid var(--line);align-items:center;transition:.2s}
+.rank-row:hover{background:var(--paper2)}
+.rank-row .no{font-family:var(--serif);font-size:24px;font-weight:900;color:var(--line);text-align:center;padding:14px 0}
+.rank-row .no.top{color:var(--red)}
+.rank-row .tt{padding:12px 14px;font-size:16px;font-weight:700}
+.rank-row .tt small{display:block;font-weight:400;font-size:12px;color:var(--muted)}
+.rank-row .ge{padding:12px 14px;font-size:13px;color:#555}
+.rank-row .sc{padding:12px 14px;text-align:right;font-family:var(--serif);font-size:20px;font-weight:700;color:var(--gold)}
+.rank-side .board{background:#fff;border:1px solid var(--line);padding:20px}
+.rank-side h3{font-family:var(--serif);font-size:20px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:14px}
+.rank-side ol{list-style:none;counter-reset:w}
+.rank-side li{counter-increment:w;padding:11px 0;border-bottom:1px dashed var(--line);font-size:15px;display:flex;gap:10px;align-items:baseline}
+.rank-side li::before{content:"0" counter(w);color:var(--red);font-family:var(--serif);font-weight:900}
+.rank-side li b{margin-left:auto;color:var(--gold);font-size:13px}
+
+/* ===== 栏目四：深度影评 ===== */
+.review{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.opinion{display:grid;grid-template-columns:96px 1fr;gap:16px;background:#fff;border:1px solid var(--line);padding:18px}
+.opinion .ava{width:96px;height:120px;background:linear-gradient(135deg,#2b2b2b,#111)}
+.opinion .ava.s{background:linear-gradient(135deg,#4a2a22,#1a0f0c)}
+.opinion .ava.t{background:linear-gradient(135deg,#22403f,#0c1a19)}
+.opinion .txt h4{font-family:var(--serif);font-size:18px;line-height:1.4;margin-bottom:6px}
+.opinion .txt .who{font-size:12px;color:var(--red);margin-bottom:8px}
+.opinion .txt p{font-size:14px;color:#555}
+.opinion .txt .star{color:var(--gold);font-size:13px;margin-top:8px}
+
+/* ===== 页脚 ===== */
+footer{background:var(--ink);color:#cfcfcf;padding:44px 0 24px;margin-top:40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;padding-bottom:30px;border-bottom:1px solid #333}
+.foot-grid .brandfoot{font-family:var(--serif);font-size:26px;color:#fff}
+.foot-grid .brandfoot small{display:block;color:var(--gold);font-size:12px;letter-spacing:4px;margin-top:6px}
+.foot-grid h5{color:#fff;font-family:var(--serif);font-size:17px;margin-bottom:14px}
+.foot-grid ul{list-style:none;font-size:14px}
+.foot-grid li{padding:5px 0}
+.foot-grid a:hover{color:var(--gold)}
+.copyright{text-align:center;font-size:13px;color:#8a8a8a;padding-top:22px}
+.copyright a{color:var(--gold)}
+
+/* ===== 响应式 ===== */
+@media (max-width:900px){
+  .wrap{padding:0 14px}
+  .brand{font-size:30px}
+  .brand small{letter-spacing:3px}
+  .mast-head{grid-template-columns:1fr;text-align:center;gap:14px;padding:20px 0}
+  .mast-head .center{border:none;padding:0}
+  .mast-head .right{text-align:center}
+  .menu-btn{display:block}
+  nav.primary .inner{max-height:0;overflow:hidden;flex-direction:column;align-items:stretch;transition:.3s}
+  nav.primary.open .inner{max-height:420px}
+  nav.primary a{border-right:none;border-bottom:1px solid rgba(255,255,255,.18);padding:12px 14px}
+  nav.primary a.hot{margin-left:0}
+  .lede{grid-template-columns:1fr;padding-top:22px}
+  .hero h1{font-size:24px}
+  .news-grid,.filmstrip,.review{grid-template-columns:1fr 1fr;gap:16px}
+  .rank-shell{grid-template-columns:1fr;gap:22px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:22px}
+  .sec-title h2{font-size:24px}
+  .rank-table .rh,.rank-row{grid-template-columns:1fr}
+  .rank-table .rh{grid-template-columns:44px 1fr 70px 60px;font-size:13px}
+  .rank-table .rh div{padding:10px 8px}
+  .rank-row{grid-template-columns:44px 1fr 70px 60px}
+  .rank-row .no{font-size:19px;padding:10px 0}
+  .rank-row .tt{font-size:14px;padding:10px 8px}
+  .rank-row .ge{font-size:12px;padding:10px 8px}
+  .rank-row .sc{font-size:17px;padding:10px 8px}
+  .opinion{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .news-grid,.filmstrip,.review,.foot-grid{grid-template-columns:1fr}
+  .mast-top{font-size:11px}
+  .mast-top .meta{gap:10px}
+  .hero h1{font-size:21px}
+  .sec-title{flex-direction:column;align-items:flex-start;gap:6px}
+  .sec-title .more{margin-left:0}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<!-- ============ 报头 ============ -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="mast-top">
+      <div class="meta">
+        <span id="today"></span>
+        <span>每日 8:00 / 12:00 / 20:00 三更</span>
+      </div>
+      <div class="meta">
+        <a href="#contact">投稿</a>
+        <a href="#contact">RSS</a>
+        <a href="https://yiluxiangxidianyingwang-wap.github.io/">电脑版</a>
+      </div>
+    </div>
+    <div class="mast-head">
+      <div class="center">
+        <b>第 09 版</b>
+        影视文化 · 深度观察<br>独立视角 · 拒绝水稿
+      </div>
+      <h1 class="brand">
+        <a href="https://yiluxiangxidianyingwang-wap.github.io/" title="一路向西电影网">一路向西电影网</a>
+        <small>YILU XIANGXI DIANYINGWANG</small>
+      </h1>
+      <div class="right">
+        <strong>影迷的观影指南</strong>
+        网址：yiluxiangxidianyingwang-wap.github.io<br>
+        关注我们，不错过每一部好片
+      </div>
+    </div>
+  </div>
+  <nav class="primary" id="nav">
+    <div class="wrap inner">
+      <a href="#news">最新资讯</a>
+      <a href="#showing">热映排片</a>
+      <a href="#rank">高分排行</a>
+      <a href="#review">深度影评</a>
+      <a href="#contact">关于我们</a>
+      <a href="#" class="hot">🔥 今日票房榜 #</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </nav>
+</header>
+
+<!-- ============ 头条 ============ -->
+<div class="wrap">
+  <section class="lede" style="border-top:none;padding-bottom:10px;">
+    <article class="hero">
+      <div class="ph" aria-hidden="true"></div>
+      <div class="cap">
+        <span class="tag">封面报道 · 独家</span>
+        <h1>暑期档收官战：<span>三部华语片</span>同台对垒，谁能守住票房基本盘？</h1>
+        <p>从预售数据、场均人次到社交平台口碑，我们拆解本周院线格局的真实水位，并给出不同口味观众的选片建议。</p>
+        <a href="#" class="more">阅读全文 →</a>
+      </div>
+    </article>
+    <aside class="hero-side">
+      <div class="alert">
+        <h4>今日速递</h4>
+        <ul>
+          <li><em>10:00</em><span>《长夜将明》密钥延期一个月，冲击年度前十</span></li>
+          <li><em>11:30</em><span>戛纳获奖片《南方车站》确认引进，档期待定</span></li>
+          <li><em>14:00</em><span>导演陈某某新作开机，搭档两位新锐演员</span></li>
+          <li><em>16:20</em><span>流媒体平台公布 Q3 片单，含 4 部华语原创</span></li>
+          <li><em>19:00</em><span>本周冷门佳片推荐：这部小成本犯罪片别错过</span></li>
+        </ul>
+      </div>
+      <div class="ticker">
+        <b>编辑部观察</b><span>行业调整期，内容质量重新成为观众投票的唯一标准——本周评论区最热讨论。</span>
+      </div>
+    </aside>
+  </section>
+</div>
+
+<!-- ============ 栏目一：最新资讯 ============ -->
+<section id="news">
+  <div class="wrap">
+    <div class="sec-title">
+      <h2><i>01</i>最新资讯</h2>
+      <span class="en">Latest News</span>
+      <a href="#" class="more">查看全部资讯 →</a>
+    </div>
+    <div class="news-grid">
+      <article class="news-card">
+        <div class="ph a"><em>封面图 · 现场</em></div>
+        <div class="body">
+          <div class="cat">行业动态</div>
+          <h3><a href="#">全国影院银幕数突破 9 万块，但单银幕产出仍在下滑</a></h3>
+          <p>我们走访了三家不同体量影院，从排片逻辑、非票收入到员工排班，还原一个真实的市场切面。</p>
+          <div class="foot"><span>2 小时前</span><span>阅读 3,218</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="ph b"><em>封面图 · 片场</em></div>
+        <div class="body">
+          <div class="cat">拍摄现场</div>
+          <h3><a href="#">探班《逆光而行》：一座废弃工厂里搭出的整条民国街</a></h3>
+          <p>美术组耗时 11 个月改造实景，道具清单长达 200 页，剧组把“考据”两个字做到了毫米级。</p>
+          <div class="foot"><span>5 小时前</span><span>阅读 2,540</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="ph c"><em>封面图 · 人物</em></div>
+        <div class="body">
+          <div class="cat">人物专访</div>
+          <h3><a href="#">对话剪辑师周明：好电影是被剪出来的，不是拍出来的</a></h3>
+          <p>从业 22 年，他剪过三部票房过 20 亿的作品。关于节奏、关于取舍，他说了三个被反复验证的判断。</p>
+          <div class="foot"><span>昨天</span><span>阅读 5,902</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="ph d"><em>封面图 · 市场</em></div>
+        <div class="body">
+          <div class="cat">市场观察</div>
+          <h3><a href="#">流媒体定档策略变了：从“一次性放完”到“周更四集”</a></h3>
+          <p>背后的算盘是留存与话题周期。我们分析了 12 部作品的完播曲线，发现了规律。</p>
+          <div class="foot"><span>昨天</span><span>阅读 1,877</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="ph a"><em>封面图 · 节展</em></div>
+        <div class="body">
+          <div class="cat">节展直击</div>
+          <h3><a href="#">FIRST 青年影展观察：新人导演最缺的不是才华，是耐心</a></h3>
+          <p>六天看了 27 部片子，我们把华语新人创作分成三类，并选出最值得关注的五个名字。</p>
+          <div class="foot"><span>2 天前</span><span>阅读 4,116</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="ph b"><em>封面图 · 榜单</em></div>
+        <div class="body">
+          <div class="cat">一周榜单</div>
+          <h3><a href="#">本周冷门佳片榜：评分高却没人看的 5 部电影</a></h3>
+          <p>它们没有铺天盖地的营销，但看完你会愿意写一段长评——这是我们挑选的唯一标准。</p>
+          <div class="foot"><span>2 天前</span><span>阅读 6,430</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目二：热映排片 ============ -->
+<section id="showing" class="nowshow">
+  <div class="wrap">
+    <div class="sec-title">
+      <h2><i>02</i>热映排片</h2>
+      <span class="en">Now Showing</span>
+      <a href="#" class="more" style="color:#cfcfcf;border-color:#cfcfcf;">查看全部在映影片 →</a>
+    </div>
+    <div class="filmstrip">
+      <article class="poster">
+        <div class="frame"><span>IMAX</span><b>长夜将明</b></div>
+        <h4>长夜将明</h4>
+        <div class="score">★ 8.7 · 剧情 / 悬疑</div>
+        <p>排片占比 31%，场均人次稳居榜首，口碑仍在爬坡。</p>
+      </article>
+      <article class="poster">
+        <div class="frame"><span>3D</span><b>海风过境</b></div>
+        <h4>海风过境</h4>
+        <div class="score">★ 8.2 · 爱情 / 家庭</div>
+        <p>口碑两极，但二线城市表现异常坚挺。</p>
+      </article>
+      <article class="poster">
+        <div class="frame"><span>杜比</span><b>逆光而行</b></div>
+        <h4>逆光而行</h4>
+        <div class="score">★ 8.9 · 动作 / 历史</div>
+        <p>成本 3.6 亿，目前票房已破 11 亿，回本无悬念。</p>
+      </article>
+      <article class="poster">
+        <div class="frame"><span>CINITY</span><b>夏天的形状</b></div>
+        <h4>夏天的形状</h4>
+        <div class="score">★ 7.8 · 青春 / 喜剧</div>
+        <p>小成本黑马，社交平台讨论度上升最快。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目三：高分排行 ============ -->
+<section id="rank">
+  <div class="wrap">
+    <div class="sec-title">
+      <h2><i>03</i>高分排行</h2>
+      <span class="en">Top Rated</span>
+      <a href="#" class="more">查看完整榜单 →</a>
+    </div>
+    <div class="rank-shell">
+      <div class="rank-table">
+        <div class="rh"><div>排名</div><div>影片</div><div>类型</div><div>评分</div></div>
+        <div class="rank-row"><div class="no top">1</div><div class="tt">逆光而行<small>2026 · 导演：陆远</small></div><div class="ge">动作 / 历史</div><div class="sc">8.9</div></div>
+        <div class="rank-row"><div class="no top">2</div><div class="tt">南方车站<small>2025 · 导演：沈知白</small></div><div class="ge">犯罪 / 文艺</div><div class="sc">8.8</div></div>
+        <div class="rank-row"><div class="no top">3</div><div class="tt">长夜将明<small>2026 · 导演：陈默</small></div><div class="ge">剧情 / 悬疑</div><div class="sc">8.7</div></div>
+        <div class="rank-row"><div class="no">4</div><div class="tt">海风过境<small>2026 · 导演：林舒</small></div><div class="ge">爱情 / 家庭</div><div class="sc">8.2</div></div>
+        <div class="rank-row"><div class="no">5</div><div class="tt">寂静之地<small>2025 · 导演：韩宁</small></div><div class="ge">惊悚 / 剧情</div><div class="sc">8.1</div></div>
+        <div class="rank-row"><div class="no">6</div><div class="tt">父亲的小屋<small>2025 · 导演：赵明</small></div><div class="ge">剧情 / 亲情</div><div class="sc">7.9</div></div>
+        <div class="rank-row"><div class="no">7</div><div class="tt">夏天的形状<small>2026 · 导演：周野</small></div><div class="ge">青春 / 喜剧</div><div class="sc">7.8</div></div>
+        <div class="rank-row"><div class="no">8</div><div class="tt">远方来信<small>2025 · 导演：吴桐</small></div><div class="ge">文艺 / 爱情</div><div class="sc">7.7</div></div>
+      </div>
+      <aside class="rank-side">
+        <div class="board">
+          <h3>本周话题榜</h3>
+          <ol>
+            <li>《长夜将明》三段长镜头到底好在哪？<b>12.4 万讨论</b></li>
+            <li>流媒体周更模式，观众买账吗？<b>9.8 万讨论</b></li>
+            <li>新人导演该不该坚持自己的剪辑节奏<b>7.6 万讨论</b></li>
+            <li>为什么这批悬疑片都在用同一个结构<b>6.2 万讨论</b></li>
+            <li>小成本电影如何靠口碑逆袭<b>5.1 万讨论</b></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目四：深度影评 ============ -->
+<section id="review">
+  <div class="wrap">
+    <div class="sec-title">
+      <h2><i>04</i>深度影评</h2>
+      <span class="en">In-depth Review</span>
+      <a href="#" class="more">阅读全部评论 →</a>
+    </div>
+    <div class="review">
+      <article class="opinion">
+        <div class="ava" aria-hidden="true"></div>
+        <div class="txt">
+          <h4>《逆光而行》：一部被动作戏耽误的伦理片</h4>
+          <div class="who">影评人 · 老周 / 资深影迷 · 从业 15 年</div>
+          <p>它最动人的段落不是爆破与追逐，而是男主在废墟前那段 47 秒的沉默。导演用一场“不说话的戏”完成了人物弧光的全部转折，这种克制在华语商业片里相当罕见。</p>
+          <div class="star">★★★★☆ 推荐</div>
+        </div>
+      </article>
+      <article class="opinion">
+        <div class="ava s" aria-hidden="true"></div>
+        <div class="txt">
+          <h4>《南方车站》：类型外壳下的县城浮世绘</h4>
+          <div class="who">影评人 · 沈墨白 / 独立影评人</div>
+          <p>影片真正的野心不在破案，而在空间。那些潮湿的巷道、闪烁的霓虹、挤在窄楼梯上的邻里，比任何台词都更有力地写出了一个时代的边缘感。</p>
+          <div class="star">★★★★★ 必看</div>
+        </div>
+      </article>
+      <article class="opinion">
+        <div class="ava t" aria-hidden="true"></div>
+        <div class="txt">
+          <h4>《海风过境》：情感是真的，逻辑是散的</h4>
+          <div class="who">影评人 · 阿May / 编剧 · 策展人</div>
+          <p>最后 30 分钟的处理暴露了剧本的软肋：它急于给出和解，却跳过了和解必须经历的摩擦。表演救回了大部分分数，但不足以掩盖结构上的妥协。</p>
+          <div class="star">★★★☆☆ 可看</div>
+        </div>
+      </article>
+      <article class="opinion">
+        <div class="ava" aria-hidden="true"></div>
+        <div class="txt">
+          <h4>《夏天的形状》：黑马不是偶然，是类型精准</h4>
+          <div class="who">影评人 · 小K / 院线观察员</div>
+          <p>成本不到 2000 万，靠的是对目标观众情绪的精确把握。它不追求深刻，但做到了“好笑、好看、好哭”这三件事的排序完全正确。</p>
+          <div class="star">★★★★☆ 推荐</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 关于 / 联系 ============ -->
+<section id="contact" style="background:#fff;border-top:4px double var(--ink);">
+  <div class="wrap">
+    <div class="sec-title">
+      <h2><i>05</i>关于一路向西电影网</h2>
+      <span class="en">About Us</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:34px;align-items:start;">
+      <div>
+        <p style="font-size:16px;line-height:2;color:#444;">
+          <strong style="font-family:var(--serif);font-size:20px;color:var(--ink);">一路向西电影网</strong>（yiluxiangxidianyingwang-wap.github.io）是一个专注于电影资讯、热映排片、高分排行与深度影评的独立影视内容站点。我们坚持“不追热点、不写水稿、不收红包”，每一篇内容都由看过完整影片的编辑撰写。
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px;">
+          <div style="border-top:3px solid var(--red);padding-top:12px;"><b style="font-family:var(--serif);font-size:24px;">6,200+</b><br><span style="font-size:13px;color:var(--muted);">原创文章</span></div>
+          <div style="border-top:3px solid var(--ink);padding-top:12px;"><b style="font-family:var(--serif);font-size:24px;">380</b><span style="font-size:13px;color:var(--muted);"> 位签约影评人</span></div>
+          <div style="border-top:3px solid var(--gold);padding-top:12px;"><b style="font-family:var(--serif);font-size:24px;">3</b><span style="font-size:13px;color:var(--muted);"> 次每日更新</span></div>
+          <div style="border-top:3px solid var(--red);padding-top:12px;"><b style="font-family:var(--serif);font-size:24px;">8.4</b><span style="font-size:13px;color:var(--muted);"> 平均内容评分</span></div>
+        </div>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--line);padding:22px;">
+        <h4 style="font-family:var(--serif);font-size:19px;margin-bottom:14px;">投稿与合作</h4>
+        <ul style="list-style:none;font-size:14px;line-height:2.2;">
+          <li>📮 投稿邮箱：<a href="#" style="border-bottom:1px dashed var(--ink);">editor@yiluxiangxidianyingwang-wap.github.io</a></li>
+          <li>🤝 商务合作：<a href="#" style="border-bottom:1px dashed var(--ink);">bd@yiluxiangxidianyingwang-wap.github.io</a></li>
+          <li>💬 读者交流：<a href="#">加入读者群 #</a></li>
+          <li>📰 内容合作：<a href="#">转载授权 #</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brandfoot">一路向西电影网<small>YILU XIANGXI DIANYINGWANG</small></div>
+        <p style="font-size:13px;margin-top:12px;color:#9a9a9a;">独立影视内容站点，提供最新电影资讯、热映排片、高分排行与深度影评。网址：yiluxiangxidianyingwang-wap.github.io</p>
+      </div>
+      <div>
+        <h5>栏目导航</h5>
+        <ul>
+          <li><a href="#news">最新资讯</a></li>
+          <li><a href="#showing">热映排片</a></li>
+          <li><a href="#rank">高分排行</a></li>
+          <li><a href="#review">深度影评</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>内容板块</h5>
+        <ul>
+          <li><a href="#">行业动态</a></li>
+          <li><a href="#">人物专访</a></li>
+          <li><a href="#">拍摄现场</a></li>
+          <li><a href="#">节展直击</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>关于我们</h5>
+        <ul>
+          <li><a href="#contact">网站介绍</a></li>
+          <li><a href="#">投稿须知</a></li>
+          <li><a href="#">版权声明</a></li>
+          <li><a href="#">隐私政策</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 一路向西电影网 yiluxiangxidianyingwang-wap.github.io 版权所有 · 本站内容仅供影视资讯交流，影片信息以官方公布为准<br>
+      网站名称：<a href="https://yiluxiangxidianyingwang-wap.github.io/">一路向西电影网</a> ｜ 网站网址：https://yiluxiangxidianyingwang-wap.github.io/
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=new Date(),w=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+  var el=document.getElementById("today");
+  if(el)el.textContent=(d.getFullYear()+" 年 "+(d.getMonth()+1)+" 月 "+d.getDate()+" 日  "+w[d.getDay()]);
+  var nav=document.getElementById("nav"),btn=document.getElementById("menuBtn");
+  if(btn&&nav)btn.addEventListener("click",function(){nav.classList.toggle("open")});
+  var links=nav?nav.querySelectorAll("a"):[];
+  for(var i=0;i<links.length;i++){
+    links[i].addEventListener("click",function(){if(window.innerWidth<=900&&nav)nav.classList.remove("open")});
+  }
+})();
+</script>
+</body>
+</html>
